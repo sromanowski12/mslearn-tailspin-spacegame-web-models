@@ -35,14 +35,10 @@ steps:
     minorVersion: '0'
     patchVersion: '0'
  
-- task: NuGetToolInstaller@1
-  inputs:
-    versionSpec: '6.14.0'
-    checkLatest: true
 - task: NuGetCommand@2
-  displayName: 'Publish NuGet package'
   inputs:
-    command: push
-    feedPublish: '$(System.TeamProject)/Tailspin.SpaceGame.Web.Models'
-    allowPackageConflicts: true
-  condition: succeeded()
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '146de9ff-2daf-4456-9460-799c110658cb'
+
