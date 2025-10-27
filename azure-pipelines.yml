@@ -35,6 +35,10 @@ steps:
     minorVersion: '0'
     patchVersion: '0'
  
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: '6.14.0'
+    checkLatest: true
 - task: NuGetCommand@2
   displayName: 'Publish NuGet package'
   inputs:
