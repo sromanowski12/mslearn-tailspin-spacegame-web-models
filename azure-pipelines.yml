@@ -34,7 +34,12 @@ steps:
     majorVersion: '1'
     minorVersion: '0'
     patchVersion: '0'
- 
+
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: '6.0.0'
+    checkLatest: true
+
 - task: NuGetCommand@2
   inputs:
     command: 'push'
